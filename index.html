@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>I AM Kinga | Szkoła językowa - Plan zajęć</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      background: rgba(25, 45, 65, 0.95);
+      padding: 16px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #e1e8ed;
+      font-size: 1.1rem;
+      transition: 0.2s;
+      padding: 8px 16px;
+      border-radius: 24px;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 70px 0 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #1a2d42;
+      letter-spacing: -0.3px;
+      border-left: 6px solid #4a90e2;
+      padding-left: 20px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      padding: 12px 20px;
+      border-radius: 0 24px 24px 0;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a2d42, #2c3e50, #34495e);
+      border-radius: 48px;
+      margin: 20px 0 30px;
+      padding: 50px 30px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 20px 0 16px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .hero h1 span {
+      color: #4a90e2;
+      text-shadow: 0 2px 8px rgba(74, 144, 226, 0.4);
+    }
+    .hero-img {
+      max-width: 180px;
+      border-radius: 60px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      color: white;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 20px;
+      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #357abd, #2a69a8);
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
+    }
+
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-img {
+      flex: 1;
+      min-width: 240px;
+      text-align: center;
+    }
+    .about-img img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 36px;
+      object-fit: cover;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+      border: 4px solid rgba(74, 144, 226, 0.2);
+    }
+    .about-text {
+      flex: 2;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #333;
+      background: white;
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .about-text p {
+      margin-bottom: 16px;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 340px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 32px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    }
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 32px;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+    .flip-front {
+      background: linear-gradient(145deg, #ffffff, #f8f9fa);
+      border: 1px solid rgba(74, 144, 226, 0.2);
+    }
+    .flip-back {
+      background: linear-gradient(135deg, #1a2d42, #2c3e50);
+      color: white;
+      transform: rotateY(180deg);
+      justify-content: center;
+      text-align: center;
+      font-weight: 500;
+      gap: 12px;
+    }
+    .price-badge {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #4a90e2;
+      margin: 15px 0;
+    }
+    .flip-back p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+    .flip-back i {
+      margin-right: 6px;
+    }
+
+    .schedule-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
+    .schedule-container {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      border-radius: 32px;
+      padding: 24px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(74, 144, 226, 0.15);
+    }
+    .schedule-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a2d42;
+      margin-bottom: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 12px;
+      border-radius: 16px;
+    }
+    .day-column {
+      margin-bottom: 24px;
+    }
+    .day-name {
+      font-weight: 700;
+      color: #34495e;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      border-bottom: 2px solid rgba(74, 144, 226, 0.2);
+      padding-bottom: 8px;
+    }
+    .time-slot {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      transition: 0.2s;
+      cursor: pointer;
+      border-left: 4px solid #4a90e2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .time-slot:hover {
+      background: linear-gradient(135deg, #e9ecef, #dee2e6);
+      transform: translateX(4px);
+    }
+    .time-slot:last-child {
+      margin-bottom: 0;
+    }
+    .time-info {
+      font-weight: 600;
+      color: #1a2d42;
+    }
+    .class-info {
+      font-size: 0.9rem;
+      color: #5a6c7d;
+      margin-top: 4px;
+    }
+    .book-btn {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .book-btn:hover {
+      background: linear-gradient(135deg, #357abd, #2a69a8);
+      transform: scale(1.02);
+    }
+    .no-slots {
+      text-align: center;
+      color: #5a6c7d;
+      font-style: italic;
+      padding: 20px;
+    }
+    .info-badge {
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(74, 144, 226, 0.08));
+      padding: 12px 20px;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 25px;
+      text-align: center;
+      border: 1px solid rgba(74, 144, 226, 0.2);
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .contact-card {
+      background: white;
+      width: 220px;
+      padding: 28px 16px;
+      border-radius: 48px;
+      text-align: center;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+      transition: 0.2s;
+      border: 1px solid rgba(74, 144, 226, 0.15);
+    }
+    .contact-card i {
+      font-size: 3rem;
+      color: #4a90e2;
+      margin-bottom: 16px;
+    }
+    .contact-card a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a2d42;
+      display: block;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #5a6c7d;
+      background: rgba(25, 45, 65, 0.05);
+      border-top: 1px solid rgba(74, 144, 226, 0.1);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #5a6c7d;
+    }
+    .loading i {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 800px) {
+      .hero h1 { font-size: 2.3rem; }
+      .section-title { font-size: 1.8rem; }
+      .flip-card { width: 260px; height: 320px; }
+      .schedule-wrapper { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#home">Start</a>
+  <a href="#about">O mnie</a>
+  <a href="#classes">Zajęcia</a>
+  <a href="#booking">Zapisy</a>
+  <a href="#contact">Kontakt</a>
+</nav>
+
+<main class="container">
+  <section id="home">
+    <div class="hero">
+      <img class="hero-img" src="https://placehold.co/400x400/d6eaf8/4a90e2?text=Kinga+🇩🇪🇬🇧" alt="Kinga Włodarczyk - nauczycielka">
+      <h1>Szkoła językowa <span style="color:#4a90e2;">I AM Kinga</span></h1>
+      <button class="btn-primary" id="scrollToSignupBtn">📝 Zapisz się na lekcję</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">O mnie</h2>
+    <div class="about-flex">
+      <div class="about-img">
+        <img src="https://placehold.co/500x600/f8f9fa/6c757d?text=Kinga+nauczycielka" alt="Kinga Włodarczyk - portret">
+      </div>
+      <div class="about-text">
+        <p>Jestem nauczycielką języka niemieckiego i angielskiego z ponad 8-letnim doświadczeniem. Urodziłam się i wychowałam w Justyni, dlatego język niemiecki jest moim językiem ojczystym, co pozwala mi przekazywać uczniom nie tylko poprawny język, ale także autentyczną kulturę i naturalne brzmienie.</p>
+        <p>Uczę na wszystkich poziomach zaawansowania – od osób zaczynających od zera po uczniów zaawansowanych. Pracuję zarówno z dziećmi, młodzieżą, jak i dorosłymi, dostosowując metody do indywidualnych potrzeb i celów ucznia.</p>
+        <p>Specjalizuję się również w przygotowywaniu do konkursów kuratoryjnych oraz olimpiad językowych, pomagając osiągać wysokie wyniki i rozwijać pewność siebie w posługiwaniu się językiem.</p>
+        <p>W pracy stawiam na praktyczną komunikację, przyjazną atmosferę i skuteczne metody nauki. Poza nauczaniem rozwijam swoje pasje artystyczne i sportowe – gram na instrumentach, śpiewam i maluję. Dużą radość sprawia mi także gotowanie i podróżowanie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="classes">
+    <h2 class="section-title">Zajęcia</h2>
+    <div class="cards-grid">
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <i class="fas fa-users" style="font-size: 48px; color:#4a90e2; margin-bottom: 15px;"></i>
+            <h3>Zajęcia grupowe</h3>
+            <p>dzieci i dorośli</p>
+            <div class="price-badge">od 50 zł</div>
+            <small>za zajęcia</small>
+          </div>
+          <div class="flip-back">
+            <i class="fas fa-chalkboard-user" style="font-size: 36px;"></i>
+            <p><strong>✔ Kameralne grupy</strong></p>
+            <p>Aktywna komunikacja, mówienie, słuchanie, czytanie, pisanie</p>
+            <p>Przyjazna atmosfera</p>
+            <p>📅 stałe terminy</p>
+            <p>👥 max 10 osób</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <i class="fas fa-chalkboard" style="font-size: 48px; color:#4a90e2; margin-bottom: 15px;"></i>
+            <h3>Zajęcia indywidualne</h3>
+            <p>stacjonarne / online</p>
+            <div class="price-badge">od 90 zł</div>
+            <small>za 60 min</small>
+          </div>
+          <div class="flip-back">
+            <i class="fas fa-laptop-house"></i>
+            <p>✅ 100% dopasowane do Twoich celów</p>
+            <p>📍 stacjonarnie (dojazd do ucznia) lub online</p>
+            <p>🎯 przygotowanie do egzaminów, konwersacje, od podstaw</p>
+            <p>📅 elastyczne godziny</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <i class="fas fa-globe" style="font-size: 48px; color:#4a90e2; margin-bottom: 15px;"></i>
+            <h3>Kurs internetowy</h3>
+            <p>z dostępem do platformy</p>
+            <div class="price-badge">od 100 zł</div>
+            <small>miesięcznie</small>
+          </div>
+          <div class="flip-back">
+            <i class="fas fa-video"></i>
+            <p>📘 materiały + ćwiczenia online</p>
+            <p>⚡ nauka we własnym tempie</p>
+            <p>🗣️ konsultacje z nauczycielem</p>
+            <p>💡 wsparcie w rozwoju językowym</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2 class="section-title">📅 Zapisy na zajęcia</h2>
+    <div class="info-badge">
+      <i class="fas fa-info-circle" style="color:#4a90e2"> </i> 
+      <strong>Zajęcia grupowe:</strong> wybierz termin z planu po lewej stronie. 
+      <strong>Zajęcia indywidualne:</strong> dostępne terminy po prawej stronie.
+    </div>
+    <div class="schedule-wrapper">
+      <div class="schedule-container">
+        <h3 class="schedule-title"><i class="fas fa-users"></i> Zajęcia grupowe</h3>
+        <div id="groupSchedule">
+          <div class="no-slots">⚠️ Dane zajęć nie zostały jeszcze skonfigurowane.</div>
+        </div>
+      </div>
+      
+      <div class="schedule-container">
+        <h3 class="schedule-title"><i class="fas fa-user"></i> Zajęcia indywidualne</h3>
+        <div id="individualSchedule">
+          <div class="no-slots">⚠️ Dane zajęć nie zostały jeszcze skonfigurowane.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Kontakt</h2>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <i class="fas fa-phone-alt"></i>
+        <h3>Telefon</h3>
+        <a href="tel:+48730650150">730 650 150</a>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <a href="mailto:kinga.wlodarczyk2021@gmail.com">kinga.wlodarczyk2021@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <i class="fab fa-facebook"></i>
+        <h3>Facebook</h3>
+        <a href="#" target="_blank">I AM Kinga - Szkoła językowa</a>
+      </div>
+    </div>
+  </section>
+  <footer>© 2025 I AM Kinga – nauka języków z pasją</footer>
+</main>
+
+<script>
+  // ==================== DANE ZAJĘĆ - UŻYWAJ ARKUSZA GOOGLE SHEETS ====================
+  
+  const SPREADSHEET_ID = '1-ZKuECkS2JxaoyITCMMuMrEe-DwALnnil0qL1WI89Ew';
+  
+  // Funkcja pobierająca dane z arkusza Google Sheets
+  async function fetchScheduleFromGoogleSheets() {
+    const sheet1Url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=Sheet1`;
+    const sheet2Url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=Sheet2`;
+    
+    try {
+      const [groupResponse, individualResponse] = await Promise.all([
+        fetch(sheet1Url).then(r => r.text()),
+        fetch(sheet2Url).then(r => r.text())
+      ]);
+      
+      const parseSheet = (text) => {
+        console.log('Parsuję response (pierwsze 200 znaków):', text.substring(0, 200));
+        
+        const jsonStr = text.replace('/*O_o*/', '')
+          .replace(/^google\.visualization\.Query\.setResponse\(/m, '')
+          .replace(/\);$/m, '');
+        
+        console.log('Po replace (pierwsze 200 znaków):', jsonStr.substring(0, 200));
+        
+        let data;
+        try {
+          data = JSON.parse(jsonStr);
+        } catch (e) {
+          console.error('Nie można sparsować JSON:', e.message);
+          return [];
+        }
+        
+        if (!data.table?.rows) {
+          console.log('Brak table.rows w danych, sprawdzam strukturę:', JSON.stringify(data, null, 2));
+          return [];
+        }
+        
+        const DAY_NAMES = {
+          'Poniedziałek': 'Monday',
+          'Wtorek': 'Tuesday',
+          'Środa': 'Wednesday',
+          'Czwartek': 'Thursday',
+          'Piątek': 'Friday',
+          'Sobota': 'Saturday',
+          'Niedziela': 'Sunday'
+        };
+        
+        console.log('Liczba wierszy w arkuszu:', data.table.rows.length);
+        
+        return data.table.rows.map(row => {
+          const c = row.c || [];
+          const result = {
+            day: DAY_NAMES[c[0]?.v || ''] || c[0]?.v || '',
+            hour: c[1]?.v || 0,
+            minute: c[2]?.v || 0,
+            duration: c[3]?.v || 60,
+            name: c[4]?.v || 'Zajęcia',
+            freeSeats: c[5]?.v || 0,
+            formUrl: c[6]?.v || ''
+          };
+          console.log('Przetworzony wiersz:', result);
+          return result;
+        }).filter(item => item.day && item.formUrl);
+      };
+      
+      const groupData = parseSheet(groupResponse);
+      const individualData = parseSheet(individualResponse);
+      
+      // Zaktualizuj globalne zmienne danymi z arkusza
+      window.groupClasses = groupData;
+      window.individualSlots = individualData;
+      window.scheduleDataFetched = true;
+      
+      // Ponownie wyrenderuj
+      renderGroupSchedule();
+      renderIndividualSchedule();
+      
+      console.log('✓ Dane z arkusza załadowane:', groupData.length, 'grupowe +', individualData.length, 'indywidualne');
+    } catch (error) {
+      console.error('✗ Błąd pobierania danych:', error);
+    }
+  }
+  
+  // ==================== RENDEROWANIE (używa zakodowanych danych LUB z arkusza) ====================
+  
+  function renderGroupSchedule() {
+    const container = document.getElementById('groupSchedule');
+    if (!container) return;
+    
+    let sourceData = window.groupClasses || [];
+    
+    if (sourceData.length === 0) {
+      container.innerHTML = '<div class="no-slots">⚠️ Dane zajęć nie zostały jeszcze skonfigurowane.</div>';
+      if (!window.scheduleDataFetched) {
+        setTimeout(fetchScheduleFromGoogleSheets, 1000);
+      }
+      return;
+    }
+    
+    const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const polishDays = { 'Monday': 'Poniedziałek', 'Tuesday': 'Wtorek', 'Wednesday': 'Środa', 'Thursday': 'Czwartek', 'Friday': 'Piątek', 'Saturday': 'Sobota', 'Sunday': 'Niedziela' };
+    
+    let html = '';
+    daysOrder.forEach(day => {
+      const dayClasses = sourceData.filter(c => c.day === day);
+      if (dayClasses.length > 0) {
+        html += `<div class="day-column"><div class="day-name">${polishDays[day]}</div>`;
+        
+        dayClasses.forEach(cls => {
+          const timeStr = `${cls.hour.toString().padStart(2, '0')}:${cls.minute.toString().padStart(2, '0')}`;
+          const endHour = Math.floor((cls.hour * 60 + cls.minute + cls.duration) / 60);
+          const endMin = (cls.hour * 60 + cls.minute + cls.duration) % 60;
+          const endTimeStr = `${endHour.toString().padStart(2, '0')}:${endMin.toString().padStart(2, '0')}`;
+          
+          const freeSeatsText = cls.freeSeats > 0 ? `🎫 ${cls.freeSeats} miejsc${cls.freeSeats < 5 ? 'a' : ''} ` : '';
+          
+          html += `
+            <div class="time-slot" onclick="location.href='${cls.formUrl}'" title="Kliknij, aby zapisać się">
+              <div>
+                <div class="time-info">${timeStr}-${endTimeStr}</div>
+                <div class="class-info">${cls.name} ${freeSeatsText}</div>
+              </div>
+              <button class="book-btn">Zapisz się</button>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+    });
+    
+    container.innerHTML = html.length > 0 ? html : '<div class="no-slots">Brak zajęć w tym tygodniu.</div>';
+  }
+  
+  function renderIndividualSchedule() {
+    const container = document.getElementById('individualSchedule');
+    if (!container) return;
+    
+    let sourceData = window.individualSlots || [];
+    
+    if (sourceData.length === 0) {
+      container.innerHTML = '<div class="no-slots">Brak wolnych terminów.</div>';
+      return;
+    }
+    
+    const daysPolish = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
+    
+    let html = '';
+    daysPolish.forEach(day => {
+      const daySlots = sourceData.filter(s => {
+        const polishDay = { 'Monday': 'Poniedziałek', 'Tuesday': 'Wtorek', 'Wednesday': 'Środa', 'Thursday': 'Czwartek', 'Friday': 'Piątek', 'Saturday': 'Sobota', 'Sunday': 'Niedziela' };
+        return polishDay[s.day] === day;
+      });
+      
+      if (daySlots.length > 0) {
+        html += `<div class="day-column"><div class="day-name">${day}</div>`;
+        
+        daySlots.forEach(slot => {
+          const timeStr = `${slot.hour.toString().padStart(2, '0')}:${slot.minute.toString().padStart(2, '0')}`;
+          const endHour = Math.floor((slot.hour * 60 + slot.minute + slot.duration) / 60);
+          const endMin = (slot.hour * 60 + slot.minute + slot.duration) % 60;
+          const endTimeStr = `${endHour.toString().padStart(2, '0')}:${endMin.toString().padStart(2, '0')}`;
+          
+          html += `
+            <div class="time-slot" onclick="location.href='${slot.formUrl}'" title="Kliknij, aby zapisać się">
+              <div>
+                <div class="time-info">${timeStr}-${endTimeStr}</div>
+                <div class="class-info">${slot.name}</div>
+              </div>
+              <button class="book-btn">Zapisz się</button>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+    });
+    
+    container.innerHTML = html.length > 0 ? html : '<div class="no-slots">Brak wolnych terminów.</div>';
+  }
+  
+  // ==================== INICJALIZACJA ====================
+  
+  async function init() {
+    // Pobierz dane z arkusza
+    fetchScheduleFromGoogleSheets();
+    
+    // Przycisk Zapisz się w hero
+    const zapiszBtn = document.getElementById('scrollToSignupBtn');
+    if (zapiszBtn) zapiszBtn.addEventListener('click', () => {
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Nawigacja
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl && targetId !== 'home') {
+          e.preventDefault();
+          targetEl.setAttribute('style', 'animation: fadeIn 0.5s ease;');
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
